@@ -1,0 +1,44 @@
+#include<iostream>
+#include<cmath>
+#include<algorithm>
+typedef long long ll;
+using namespace std;
+const int mod = 10e9+7;
+
+int snt(int a);
+
+class Handle{
+private:
+    int L,R;
+public:
+    void Input(){
+        cin >> L >> R;
+    }
+    int Xu_li(){
+       int count1 = 0;
+       for(int i = L; i <= R; i++){
+           if(snt(i) == 1) count1++;
+       }
+       return count1;
+    }
+};
+
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        Handle res;
+        res.Input();
+        cout << res.Xu_li() << endl;
+    }
+    return 0;
+}
+
+int snt(int a){
+    if(a< 2) return 0;
+    for(int i = 2; i <= sqrt(a); i++){
+        if(a%i == 0) return 0;
+    }
+    return 1;
+}
+//code by Duong
